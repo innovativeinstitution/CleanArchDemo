@@ -9,15 +9,17 @@ using System.Text;
 
 namespace CleanArch.Infra.IoC
 {
-    public class DependencyContainer
+    public static class DependencyContainer
     {
-        public static void RegisterServices(IServiceCollection services)
+        public static IServiceCollection RegisterServices(this IServiceCollection services)
         {
             //Application Layer 
             services.AddScoped<ICourseService, CourseService>();
 
             //Infra.Data Layer
             services.AddScoped<ICourseRepository, CourseRepository>();
+
+            return services;
         }
     }
 }
