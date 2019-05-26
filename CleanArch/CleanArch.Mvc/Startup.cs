@@ -15,6 +15,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using CleanArch.Infra.Data.Context;
 using CleanArch.Infra.IoC;
+using MediatR;
 
 namespace CleanArch.Mvc
 {
@@ -50,6 +51,8 @@ namespace CleanArch.Mvc
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddMediatR(typeof(Startup));
 
             RegisterServices(services);
         }
